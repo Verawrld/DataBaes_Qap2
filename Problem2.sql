@@ -67,3 +67,33 @@ INSERT INTO order_items (order_id, product_id, quantity) VALUES
 (4, 3, 1), 
 (5, 4, 2), 
 (5, 5, 1); 
+
+-- Retrieve the names and stock quantities of all products
+SELECT product_name, stock_quantity
+FROM products;
+
+-- Retrieve the product names and quantities for order with id 1
+SELECT p.product_name, oi.quantity
+FROM order_items oi
+JOIN products p ON oi.product_id = p.id
+WHERE oi.order_id = 1;
+
+-- Retrieve all orders placed by customer with id 1 (including the ID’s of what was ordered and the quantities)
+SELECT o.id AS order_id, oi.product_id, oi.quantity
+FROM orders o
+JOIN order_items oi ON o.id = oi.order_id
+WHERE o.customer_id = 1;
+
+-- Perform an update to simulate the reduction of stock quantities of items after a customer places an order
+-- Simulating reduction for order with id 1
+UPDATE products p
+JOIN order_items oi ON p.id = oi.product_id
+SET p.stock_quantity = p.stock_quantity - oi.quantity
+WHERE oi.order_id = 1;
+
+-- Remove order with id 1 and all associated order items from the system
+DELETE FROM order_items
+WHERE order_id = 1;
+
+DELETE FROM orders
+WHERE id = 1;
