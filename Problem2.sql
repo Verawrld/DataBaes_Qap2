@@ -1,6 +1,6 @@
 -- Create products table
 CREATE TABLE products (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,,
     product_name VARCHAR(100) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     stock_quantity INT NOT NULL
@@ -8,7 +8,7 @@ CREATE TABLE products (
 
 -- Create customers table
 CREATE TABLE customers (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL
@@ -16,7 +16,7 @@ CREATE TABLE customers (
 
 -- Create orders table
 CREATE TABLE orders (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,,
     customer_id INT,
     order_date DATE NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customers(id)

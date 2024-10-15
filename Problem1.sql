@@ -1,6 +1,6 @@
 -- Create student table
 CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE students (
 
 -- create professors table
 CREATE TABLE professors (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     department VARCHAR(100) NOT NULL
@@ -17,7 +17,7 @@ CREATE TABLE professors (
 
 -- create courses table
 CREATE TABLE courses (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,,
     course_name VARCHAR(100) NOT NULL,
     course_description TEXT,
     professor_id INT,
